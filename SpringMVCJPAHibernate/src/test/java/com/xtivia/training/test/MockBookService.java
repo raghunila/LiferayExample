@@ -8,16 +8,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-
-
-/**
- * Mock BookService which provides implementation of some of the methods
- * of the BookService interface. The removeBook and isUniqueISBN number method
- * implementations have been left out as the test cases currently don't test these methods.
- * 
- * @author asarin
- *
- */
 @Service("mockBookService")
 public class MockBookService implements BookServiceDAO {
 	private List<Book> books = Collections
@@ -53,7 +43,7 @@ public class MockBookService implements BookServiceDAO {
 	public void removeBook(Long isbn) {
 		//-- does nothing
 	}
-	
+
 	//--this method is not currently being tested
 	public void editBook(Book book) {
 		//-- does nothing

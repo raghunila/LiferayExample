@@ -28,13 +28,7 @@ import org.springframework.validation.BindException;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 
 
-/** 
- * TestContext class responsible for testing the portlet. The class has been written to test
- * the handler methods of the AddBookController and the Book domain object, to demonstrate
- * the use of TestContext framework to perform Unit Testing.
- *
- * @author asarin
- */
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:bookCatalogTest-portlet.xml")
 @TestExecutionListeners(value = { DependencyInjectionTestExecutionListener.class })
@@ -42,14 +36,14 @@ public class AddBookControllerTestContext extends AbstractJUnit4SpringContextTes
 	@Autowired
 	@Qualifier("addBookController")
 	private AddBookController addBookController;
-	
+
 	@Autowired
 	@Qualifier("bookServiceDAO")
 	private BookServiceDAO bookServiceDAO;
-	
+
 	@Autowired
     private Validator validator;
-    
+
 	@Test
 	public void testShowAddBookForm() {
 		RenderResponse response = new MockRenderResponse();
@@ -64,8 +58,8 @@ public class AddBookControllerTestContext extends AbstractJUnit4SpringContextTes
 		assertNotNull(bookServiceDAO.getBook(1234567890L));
 		assertEquals("books", response.getRenderParameter("myaction"));
 	}
-	
-	@Test 
+
+	@Test
 	public void testBook() {
 		Book book = new Book();
 		book.setName("Book Name"); //--should result in error because size is < 10

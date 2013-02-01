@@ -12,11 +12,7 @@ import org.springframework.mock.web.portlet.MockActionResponse;
 import org.springframework.mock.web.portlet.MockRenderResponse;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.support.SimpleSessionStatus;
-/**
- * JUnit test for AddBookController.
- * @author asarin
- *
- */
+
 public class AddBookControllerTest {
 	private AddBookController addBookController;
 	private BookServiceDAO bookServiceDAO = new MockBookService();
