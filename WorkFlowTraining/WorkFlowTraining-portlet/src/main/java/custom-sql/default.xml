@@ -1,0 +1,20 @@
+< ?xml version="1.0"? >
+< custom-sql >
+< sql file="custom-sql/book.xml" / >
+< /custom-sql >
+
+c. Create a file book.xml, under src/custom-sql
+
+< ?xml version="1.0"? >
+< custom-sql >
+< sql id="findBooks" >
+< ![CDATA[
+SELECT
+*
+FROM
+book
+WHERE
+(isbn =?)
+]] >
+< /sql>
+< /custom-sql >

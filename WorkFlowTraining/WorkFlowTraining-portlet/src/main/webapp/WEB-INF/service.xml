@@ -1,0 +1,45 @@
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.1.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_1_0.dtd">
+
+<service-builder package-path="com.xtivia.training.servicebuilder">
+    <namespace>BookFlow</namespace>
+    <entity name="Book" uuid="true" local-service="true" remote-service="false">
+        <!-- PK fields -->
+        <column name="id" type="long" primary="true" />
+        <!-- Group instance -->
+        <column name="name" type="String" />
+        <!-- Audit fields -->
+        
+        <column name="isbn" type="long" />
+        <column name="author" type="String" />
+        <column name="summary" type="String" />
+        
+        
+        <column name="status" type="int"/>
+        <column name="statusByUserId" type="long" />
+        <column name="statusByUserName" type="String" />
+        <column name="statusDate" type="Date" />
+        
+        <!-- Foreign Keys -->
+
+        <column name="companyId" type="long" />
+        <column name="groupId" type="long" />
+        <column name="userId" type="long" />
+        
+        
+
+        <order>
+            <order-column name="name" order-by="asc" />
+            <order-column name="author" order-by="desc" />
+        </order>
+        <!--  Order -->
+        <finder name="Isbn" return-type="Collection">
+            <finder-column name="isbn" />
+        </finder>
+        
+        <reference package-path="com.liferay.portal" entity="User" />
+        <reference package-path="com.liferay.portlet.asset" 
+                   entity="AssetEntry" />
+        <reference package-path="com.liferay.portlet.ratings" 
+                   entity="RatingsStats" />
+    </entity>
+</service-builder>

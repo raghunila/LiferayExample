@@ -1,0 +1,1 @@
+Liferay.Service.register("Liferay.Service.Book", "com.xtivia.training.servicebuilder.service", "ServiceBuilderSpringMVC-portlet");

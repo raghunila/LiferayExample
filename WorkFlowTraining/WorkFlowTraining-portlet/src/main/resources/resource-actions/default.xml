@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource-action-mapping>
+    <portlet-resource>
+        <portlet-name>WorkFlowTraining</portlet-name>
+        <permissions>
+            <supports>
+                <action-key>addBook</action-key>
+                <action-key>VIEW</action-key>
+            </supports>
+            <community-defaults>
+                <action-key>VIEW</action-key>
+            </community-defaults>
+            <guest-defaults>
+                <action-key>VIEW</action-key>
+            </guest-defaults>
+
+            <guest-unsupported>
+                <action-key>addBook</action-key>
+            </guest-unsupported>
+        </permissions>
+    </portlet-resource>
+    <model-resource>
+        <model-name>com.xtivia.training.servicebuilder.model.Book</model-name>
+        <portlet-ref>
+            <portlet-name>WorkFlowTraining</portlet-name>
+        </portlet-ref>
+        <permissions>
+            <supports>
+                <action-key>DELETE</action-key>
+                <action-key>PERMISSIONS</action-key>
+                <action-key>UPDATE</action-key>
+                <action-key>VIEW</action-key>
+            </supports>
+            <community-defaults>
+                <action-key>VIEW</action-key>
+            </community-defaults>
+            <guest-defaults>
+                <action-key>VIEW</action-key>
+            </guest-defaults>
+            <guest-unsupported>
+                <action-key>UPDATE</action-key>
+            </guest-unsupported>
+        </permissions>
+    </model-resource>
+</resource-action-mapping>

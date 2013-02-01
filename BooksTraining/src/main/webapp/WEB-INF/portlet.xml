@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
+    <portlet>
+        <portlet-name>BooksTraining</portlet-name>
+        <display-name>BooksTraining</display-name>
+        <portlet-class>com.xtivia.training.BookPortlet</portlet-class>
+        <init-param>
+            <name>view-jsp</name>
+            <value>/books/view.jsp</value>
+        </init-param>
+        <init-param>
+            <name>edit-jsp</name>
+            <value>/books/edit.jsp</value>
+        </init-param>
+        <init-param>
+            <name>add-jsp</name>
+            <value>/books/add.jsp</value>
+        </init-param>
+        <init-param>
+            <name>book-jsp</name>
+            <value>/books/book.jsp</value>
+        </init-param>
+        <init-param>
+            <name>welcome-jsp</name>
+            <value>/books/welcome.jsp</value>
+        </init-param>
+        <init-param>
+            <name>template-jsp</name>
+            <value>/books/template.jsp</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+            <portlet-mode>edit</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>BooksTraining</title>
+            <short-title>BooksTraining</short-title>
+            <keywords>BooksTraining</keywords>
+        </portlet-info>
+        <security-role-ref>
+            <role-name>administrator</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>guest</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>power-user</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>user</role-name>
+        </security-role-ref>
+        <supported-publishing-event xmlns:x='http://localhost:8080'>
+            <qname>x:isbn</qname>
+        </supported-publishing-event>
+    </portlet>
+    <portlet>
+        <portlet-name>InterPortlet</portlet-name>
+        <display-name>Inter Portlet</display-name>
+        <portlet-class>com.xtivia.training.interportlet.InterPortlet</portlet-class>
+        
+        <init-param>
+            <name>book-jsp</name>
+            <value>/interportlet/view.jsp</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>Inter Portlet</title>
+            <short-title>Inter Portlet</short-title>
+            <keywords></keywords>
+        </portlet-info>
+        <security-role-ref>
+            <role-name>administrator</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>guest</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>power-user</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>user</role-name>
+        </security-role-ref>
+        <supported-processing-event xmlns:x='http://localhost:8080'>
+            <qname>x:isbn</qname>
+        </supported-processing-event>
+    </portlet>
+    <event-definition xmlns:x='http://localhost:8080'>
+        <qname>x:isbn</qname>
+        <value-type>java.lang.String</value-type>
+    </event-definition>
+</portlet-app>

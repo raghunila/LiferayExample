@@ -1,0 +1,1 @@
+Liferay.Service.register("Liferay.Service.workflow", "com.xtivia.training.servicebuilder.service", "WorkFlowTraining-portlet");

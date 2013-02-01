@@ -1,0 +1,29 @@
+Step 1: add the columns
+        <column name="status" type="int"/>
+        <column name="statusByUserId" type="long" />
+        <column name="statusByUserName" type="String" />
+        <column name="statusDate" type="Date" />
+        run service builder
+Step 2 : add below line in liferay-portlet.xml
+            <workflow-handler>com.xtivia.training.workflow.BookWorkFlowHander</workflow-handler>
+            create the handler and over ride the methods
+            add below method in impl method
+            public Book updateStatus(long userId, long resourcePrimKey, int status, ServiceContext serviceContext)
+            run service builder
+            Book entity should be visible in kaleo work flow
+
+Step 3 : add below lines in add methods
+         resourceLocalService.addResources(book.getCompanyId(), book.getGroupId(), book.getUserId(), Book.class.getName(), book.getPrimaryKey(), false, true, true);
+        assetEntryLocalService.updateEntry(book.getUserId(), book.getGroupId(), Book.class.getName(), book.getId(), serviceContext.getAssetCategoryIds(), serviceContext.getAssetTagNames());
+        WorkflowHandlerRegistryUtil.startWorkflowInstance(book.getCompanyId(), book.getGroupId(), book.getUserId(), Book.class.getName(), book.getPrimaryKey(), book, serviceContext);
+        run service builder
+Step 4: when you add book, book must be available for approval or reject but throw error when you try to click on the links
+
+Step 5: add Asset renderers
+        add below line in liferay portlet.xml
+        <asset-renderer-factory>com.xtivia.training.workflow.BookAssetRendererFactory</asset-renderer-factory>
+        then write BookAssetRendererFactory and BookAssetRenderer, to support that write jsp full_content.jsp
+run and enjoy
+
+
+        

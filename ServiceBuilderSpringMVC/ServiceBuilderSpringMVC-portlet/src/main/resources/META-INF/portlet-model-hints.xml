@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.xtivia.training.servicebuilder.model.Book">
+		<field name="uuid" type="String" />
+		<field name="id" type="long" />
+		<field name="name" type="String" />
+		<field name="isbn" type="long" />
+		<field name="author" type="String" />
+		<field name="summary" type="String" />
+	</model>
+</model-hints>

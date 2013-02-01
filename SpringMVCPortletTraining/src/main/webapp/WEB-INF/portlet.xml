@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
+    <portlet>
+        <portlet-name>SpringMVCPortletTraining</portlet-name>
+        <display-name>SpringMVCPortletTraining</display-name>
+        <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+        <init-param>
+            <name>contextConfigLocation</name>
+            <value>/WEB-INF/bookTraining-portlet.xml</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+            <portlet-mode>edit</portlet-mode>
+        </supports>
+        <resource-bundle>content.Language-ext</resource-bundle>
+        <portlet-info>
+            <title>SpringMVCPortletTraining</title>
+            <short-title>SpringMVCPortletTraining</short-title>
+            <keywords>SpringMVCPortletTraining</keywords>
+        </portlet-info>
+        <security-role-ref>
+            <role-name>administrator</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>guest</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>power-user</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>user</role-name>
+        </security-role-ref>
+        <supported-publishing-event>
+            <qname xmlns:n="http://www.xtivia.com">n:bookAddedEvent</qname>
+        </supported-publishing-event>
+    </portlet>
+    <portlet>
+        <portlet-name>InterPortletCommunication</portlet-name>
+        <portlet-class>
+            com.xtivia.training.InterPortletCommunication
+        </portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <cache-scope>private</cache-scope>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <resource-bundle>content.Language-ext</resource-bundle>
+        <portlet-info>
+            <title>Recently Added Book</title>
+        </portlet-info>
+        <supported-processing-event>
+            <qname xmlns:n="http://www.xtivia.com">n:bookAddedEvent</qname>
+        </supported-processing-event>
+    </portlet>
+    <default-namespace>http://www.xtivia.com</default-namespace>
+    <event-definition>
+        <qname xmlns:n="http://www.xtivia.com">n:bookAddedEvent</qname>
+        <value-type>com.xtivia.training.data.BookAddedEvent</value-type>
+    </event-definition>
+</portlet-app>
